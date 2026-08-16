@@ -1,0 +1,14 @@
+#login-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+#login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+    width: 30%;
+    border: 2px solid white;
+    padding: 2vh;
+}
