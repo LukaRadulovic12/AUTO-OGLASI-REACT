@@ -1,5 +1,4 @@
 import "./Login.css";
-import Navigation from "../../navigation/Navigation.jsx";
 
 function Login() {
   function handleSubmit(event) {

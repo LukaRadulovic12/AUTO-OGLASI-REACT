@@ -1,5 +1,4 @@
 import "./Register.css";
-import Navigation from "../../navigation/Navigation.jsx";
 
 function Register() {
   async function handleSubmit(event) {
