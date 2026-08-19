@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom";
 import "./Register.css";
+import Navigation from "../../navigation/Navigation.jsx";
 
 function Register() {
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     const username = formData.get("username");
@@ -10,17 +10,27 @@ function Register() {
     const password = formData.get("password");
 
     console.log({ username, email, password });
+
+    const result = await fetch("http://localhost:3000/api/auth/register", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username, email, password }),
+      credentials: "include",
+    });
+    const data = await result.json();
+    console.log(data);
   }
   return (
-    <div id="register-page">
-      <form action="" id="register-form" onSubmit={handleSubmit}>
-        <input type="text" name="username" id="" placeholder="USERNAME" />
-        <input type="text" name="email" id="" placeholder="EMAIL" />
-        <input type="password" name="password" id="" placeholder="PASSWORD" />
-        <button type="submit">REGISTER</button>
-        <Link to="/login">LOGIN</Link>
-      </form>
-    </div>
+    <>
+      <div id="register-page">
+        <form action="" id="register-form" onSubmit={handleSubmit}>
+          <input type="text" name="username" id="" placeholder="USERNAME" />
+          <input type="text" name="email" id="" placeholder="EMAIL" />
+          <input type="password" name="password" id="" placeholder="PASSWORD" />
+          <button type="submit">REGISTER</button>
+        </form>
+      </div>
+    </>
   );
 }
 

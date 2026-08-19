@@ -6,10 +6,15 @@ import Database from "./database/database.mjs";
 
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:5173", 
+    credentials: true,
+  }),
+);
 app.use(express.json());
-app.use("/auth", auth);
-Database.getInstance()
+app.use("/api/auth", auth);
+Database.getInstance();
 
 app.listen(process.env.BACKEND_PORT, () => {
   console.log(`SERVER IS RUNNING ON PORT ${process.env.BACKEND_PORT}`);

@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
 import "./Login.css";
+import Navigation from "../../navigation/Navigation.jsx";
 
 function Login() {
   function handleSubmit(event) {
@@ -11,14 +11,15 @@ function Login() {
     console.log({ username, password });
   }
   return (
-    <div id="login-page">
-      <form action="" id="login-form" onSubmit={handleSubmit}>
-        <input type="text" name="username" id="" placeholder="USERNAME" />
-        <input type="password" name="password" id="" placeholder="PASSWORD" />
-        <button type="submit">LOGIN</button>
-        <Link to="/register">REGISTER</Link>
-      </form>
-    </div>
+    <>
+      <div id="login-page">
+        <form action="" id="login-form" onSubmit={handleSubmit}>
+          <input type="text" name="username" id="" placeholder="USERNAME" />
+          <input type="password" name="password" id="" placeholder="PASSWORD" />
+          <button type="submit">LOGIN</button>
+        </form>
+      </div>
+    </>
   );
 }
 
